@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- 1. Afisati la consola valorile din interiorul input-urilor first si last name -->
+<!-- 2. Creati o implementare generala pentru a afisa valorile inputurilor din interiorul unui form -->
+<html>
+  <head>
+    <title>Return the input's form values</title>
+  </head>
+  <body>
+    <form id="form1">
+      First name: <input type="text" name="fname" value="David" /><br />
+      Last name: <input type="text" name="lname" value="Beckham" /><br />
+      <input type="button" value="Get Values" onclick="getFormValues()" />
+    </form>
+
+    <script>
+      function getFormValues() {
+        // enter your code here
+        const inputs = document.querySelectorAll("#form1 input[type=text]");
+        inputs.forEach((textInput) => {
+          console.log(textInput.value);
+        });
+        // const firstNameInput = inputs[0];
+        // const lastNameInput = inputs[1];
+
+        // console.log(firstNameInput.value, lastNameInput.value);
+
+        // const firstNameElement = document.querySelector(
+        //   "#form1 input[name=fname]"
+        // );
+        // const lastNameElement = document.querySelector(
+        //   "#form1 input[name=lname]"
+        // );
+
+        // console.log(firstNameElement.value);
+        // console.log(lastNameElement.value);
+      }
+    </script>
+  </body>
+</html>

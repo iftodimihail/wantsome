@@ -1,0 +1,40 @@
+.container {
+  border: 1px solid green;
+  margin-top: 20px;
+  width: 800px;
+  height: 800px;
+
+  display: flex;
+  flex-direction: row;
+  /* main ax */
+  justify-content: flex-start;
+  /* secondary ax */
+  align-items: flex-start;
+}
+
+.container > div {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  border: 1px solid red;
+  color: white;
+}
+
+.one {
+  order: 1;
+  flex-grow: 1;
+}
+
+.four {
+  order: 0;
+  flex-grow: 2;
+}
+
+.three {
+  order: 2;
+  flex-grow: 3;
+}
+
+.two {
+  order: -1;
+}

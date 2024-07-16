@@ -1,0 +1,71 @@
+.content {
+  display: flex;
+}
+.content > div {
+  width: 50%;
+  height: 600px;
+}
+.content .content-text {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0 100px;
+  box-sizing: border-box;
+}
+.content .content-text .description-text {
+  padding: 20px 0;
+}
+.content .learn-more {
+  position: relative;
+}
+.content .learn-more a {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  padding: 0 10px;
+  position: relative;
+  z-index: 10;
+}
+.content .learn-more .learn-more-underline {
+  width: 100%;
+  height: 8px;
+  background-color: #fad400;
+  border-radius: 20px;
+  opacity: 0.3;
+  position: absolute;
+  bottom: -1px;
+  z-index: 1;
+}
+.content .learn-more:hover .learn-more-underline {
+  opacity: 1;
+}
+
+.background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.orange, .cherries {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 110px 100px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.egg {
+  background-image: url("../assets/egg.jpg");
+}
+
+.cherries {
+  background-image: url("../assets/cherries.png");
+}
+
+.orange {
+  background-image: url("../assets/orange.jpg");
+}/*# sourceMappingURL=content.css.map */

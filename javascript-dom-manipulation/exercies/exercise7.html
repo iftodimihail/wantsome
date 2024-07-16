@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- 1. Adaugati in lista data un element cu textul adaugat in input -->
+<!-- 2. Modificati continutul elementul din lista selectat cu textul introdus in prompt -->
+<html>
+  <head>
+    <title>Add and edit elements from a list</title>
+  </head>
+  <body>
+    <div id="list-app"></div>
+    <script>
+      // create list and form elements: list, addButton, input of type text
+      const list = document.createElement("ul");
+
+      const addButton = document.createElement("button");
+      addButton.textContent = "Add to list";
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "Item to add";
+      input.style.marginRight = "5px";
+
+      const app = document.getElementById("list-app");
+      app.appendChild(list);
+      app.appendChild(input);
+      app.appendChild(addButton);
+
+      // Add li element on button click with the input value as textContent
+      addButton.addEventListener("click", function () {
+        // enter code here
+        const li = document.createElement("li");
+        const inputValue = input.value;
+        li.textContent = inputValue;
+        list.appendChild(li);
+        input.value = "";
+      });
+
+      // Change the selected list item text with the prompt text
+      list.addEventListener("click", function (event) {
+        // verifica daca pe ce am dat click este un element de tip li
+        if (event.target.tagName === "LI") {
+          const text = prompt("Enter new text:");
+          // enter code here
+          // hint: elementul li selectat din lista este event.target
+          const selectedListItem = event.target;
+          selectedListItem.textContent = text;
+        }
+      });
+    </script>
+  </body>
+</html>

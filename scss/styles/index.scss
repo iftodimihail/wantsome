@@ -1,0 +1,92 @@
+@import "reset";
+@import "variables";
+
+@mixin links($baseColor, $hoverColor, $margin) {
+  a {
+    background-color: $baseColor;
+    color: black;
+    margin: $margin;
+
+    &:hover {
+      color: $hoverColor;
+    }
+  }
+}
+
+%buttons {
+  padding: 10px 20px;
+  color: $buttonTextColor;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  // background-color: magenta;
+}
+
+.primary-button {
+  @extend %buttons;
+  background-color: $bgButtonPrimary;
+  // @include buttonsExample();
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.secondary-button {
+  @extend %buttons;
+  background-color: $bgButtonSecondary;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.outline-button {
+  @extend %buttons;
+  background-color: transparent;
+  color: $textColor;
+  border: 1px solid $textColor;
+}
+
+.link-button {
+  @extend %buttons;
+  background-color: transparent;
+  color: $textColor;
+  text-decoration: underline;
+
+  &:hover {
+    color: blue;
+  }
+}
+
+span {
+  color: red;
+}
+
+.navigation {
+  background-color: yellow;
+
+  @include links(aquamarine, red, 10px);
+
+  li {
+    color: $textColor;
+    padding: $textPadding;
+
+    span {
+      color: blue;
+    }
+  }
+}
+
+.footer {
+  @include links(violet, orange, 30px);
+}
+
+p {
+  color: $textColor;
+  padding: $textPadding;
+}
+
+.operators-example {
+  width: 50px + $contentWidth - 8px;
+  height: 50px;
+  background-color: rgba(24 * 5, 100 - 20, 300 - 100, 0.6);
+}

@@ -1,0 +1,85 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.link-button, .outline-button, .secondary-button, .primary-button {
+  padding: 10px 20px;
+  color: white;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary-button {
+  background-color: #4287f5;
+}
+.primary-button:hover {
+  opacity: 0.7;
+}
+
+.secondary-button {
+  background-color: salmon;
+}
+.secondary-button:hover {
+  opacity: 0.7;
+}
+
+.outline-button {
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #333;
+}
+
+.link-button {
+  background-color: transparent;
+  color: #333;
+  text-decoration: underline;
+}
+.link-button:hover {
+  color: blue;
+}
+
+span {
+  color: red;
+}
+
+.navigation {
+  background-color: yellow;
+}
+.navigation a {
+  background-color: aquamarine;
+  color: black;
+  margin: 10px;
+}
+.navigation a:hover {
+  color: red;
+}
+.navigation li {
+  color: #333;
+  padding: 5px;
+}
+.navigation li span {
+  color: blue;
+}
+
+.footer a {
+  background-color: violet;
+  color: black;
+  margin: 30px;
+}
+.footer a:hover {
+  color: orange;
+}
+
+p {
+  color: #333;
+  padding: 5px;
+}
+
+.operators-example {
+  width: 442px;
+  height: 50px;
+  background-color: rgba(120, 80, 200, 0.6);
+}/*# sourceMappingURL=index.css.map */

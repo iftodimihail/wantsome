@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watch - practice</title>
+    <link rel="stylesheet" href="./watch-practics.css" />
+  </head>
+  <body>
+    <div class="watch-container">
+      <h1>Watch</h1>
+      <div id="watch"></div>
+      <div class="modes-container">
+        <button onclick="setMode('12')">Switch to 12 hour clock</button>
+        <button onclick="setMode('24')">Switch to 24 hour clock</button>
+      </div>
+    </div>
+
+    <script>
+      setInterval(() => {
+        // update watch div din secunda in secunda
+        const time = getCurrentTime();
+        document.getElementById("watch").innerHTML = time;
+      }, 1000);
+
+      function getCurrentTime() {
+        const dateObj = new Date(); // data si ora cand este apelat new Date();
+        const mode = localStorage.getItem("clockMode");
+
+        const time = {
+          hour: dateObj.getHours(),
+          minutes: dateObj.getMinutes(),
+          seconds: dateObj.getSeconds(),
+          session: "AM",
+        };
+
+        if (mode === "12" && time.hour > 12) {
+          time.hour = time.hour - 12;
+          time.session = "PM";
+        }
+
+        if (time.seconds < 10) {
+          time.seconds = "0" + time.seconds;
+        }
+
+        if (time.minutes < 10) {
+          time.minutes = "0" + time.minutes;
+        }
+
+        if (time.hour < 10) {
+          time.hour = "0" + time.hour;
+        }
+
+        // mode === "12" ? time.session : '' -> expresie ternara
+        const session = mode === "12" ? time.session : "";
+
+        // return time.hour + ":" + time.minutes + ":" + time.seconds;
+        return `${time.hour}:${time.minutes}:${time.seconds} ${session}`;
+      }
+
+      function setMode(mode) {
+        localStorage.setItem("clockMode", mode);
+      }
+    </script>
+  </body>
+</html>

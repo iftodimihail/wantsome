@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Loop</title>
+  </head>
+  <body>
+    <button onclick="stopInterval()">Stop interval function</button>
+    <script>
+      // const timeoutId = setTimeout(
+      //   () => alert("Arata acest mesaj dupa jumate de secunda"),
+      //   500
+      // );
+
+      // setTimeout(() => clearTimeout(timeoutId), 499);
+
+      // const intervalId = setInterval(
+      //   () => console.log("Ma afisez la consola odata la 2 secunde"),
+      //   2000
+      // );
+
+      // function stopInterval() {
+      //   clearInterval(intervalId);
+      // }
+
+      const foo = () => console.log("First");
+      const bar = () => setTimeout(() => console.log("Second"), 0);
+      const faz = () => Promise.resolve().then(() => console.log("Third"));
+      const baz = () => console.log("Forth");
+
+      bar(); // second
+      faz();
+      foo(); // first
+      baz(); // forth
+    </script>
+  </body>
+</html>

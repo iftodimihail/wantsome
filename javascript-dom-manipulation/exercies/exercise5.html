@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- Creati o lista cu toate legumele din array-ul dat -->
+<html>
+  <head>
+    <title>Vegetables list</title>
+  </head>
+  <body onload="onload()">
+    <script>
+      const vegetables = ["tomatoes", "carrots", "onions"];
+
+      function onload() {
+        // enter your code here
+        const ul = document.createElement("ul");
+
+        vegetables.forEach((vegetable) => {
+          const li = document.createElement("li");
+          li.textContent = vegetable;
+          ul.appendChild(li);
+        });
+
+        document.body.appendChild(ul);
+      }
+    </script>
+  </body>
+</html>

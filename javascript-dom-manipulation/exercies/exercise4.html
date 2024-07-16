@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- 1. Adaugati imaginea cu URL-ul dat in body -->
+<!-- 2. Adaugati imaginea intr-un div nou creat cu dimensiunea de 100px x 100px si faceti ca imaginea sa ocupe acel spatiu -->
+<html>
+  <head>
+    <title>Create an image element</title>
+  </head>
+  <body onload="onload()">
+    <script>
+      const imageURL = "https://crocoder.dev/icon.png";
+
+      function onload() {
+        const div = document.createElement("div");
+        div.style.width = "100px";
+        div.style.height = "100px";
+
+        // enter your code here
+        // 1. create image element
+        const img = document.createElement("img");
+        // 2. assign image url to the element
+        img.src = imageURL;
+        // 3. attach element to body
+
+        img.style.width = "100%";
+        img.style.height = "100%";
+        div.appendChild(img);
+        document.body.appendChild(div);
+      }
+    </script>
+  </body>
+</html>

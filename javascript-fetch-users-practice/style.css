@@ -1,0 +1,28 @@
+#users {
+  display: flex;
+}
+
+.user {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  margin-right: 10px;
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  font-size: 30px;
+  color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+form input {
+  margin-bottom: 10px;
+}/*# sourceMappingURL=style.css.map */

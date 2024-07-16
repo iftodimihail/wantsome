@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table,
+      td,
+      tr {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="list">
+      <li id="item1">Item 1</li>
+      <li id="item2">Item 2</li>
+      <li id="item3">Item 3</li>
+      <li id="item4">Item 4</li>
+      <li id="item5">Item 5</li>
+    </ul>
+
+    <table id="table">
+      <tr>
+        <td>Cell1-1</td>
+        <td>Cell1-2</td>
+        <td>Cell1-3</td>
+      </tr>
+      <tr>
+        <td>Cell2-1</td>
+        <td>Cell2-2</td>
+        <td>Cell2-3</td>
+      </tr>
+      <tr>
+        <td>Cell3-1</td>
+        <td>Cell3-2</td>
+        <td>Cell3-3</td>
+      </tr>
+    </table>
+
+    <script>
+      const list = document.getElementById("list");
+
+      function listClickHandler(event) {
+        console.log(event.target);
+        console.log(event.currentTarget);
+
+        alert(`Am apasat pe itemul ${event.target.textContent}`);
+      }
+
+      list.addEventListener("click", listClickHandler);
+
+      const table = document.getElementById("table");
+
+      function tableClickHandler(event) {
+        console.log(event.target);
+        console.log(event.currentTarget);
+
+        if (event.target.tagName === "TD") {
+          alert(`Am apasat pe itemul ${event.target.textContent}`);
+        }
+      }
+      table.addEventListener("click", tableClickHandler);
+    </script>
+  </body>
+</html>
