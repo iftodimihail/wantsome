@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- 1. Modificati primul si ultimul copil din fiecare unordered list cu textul "first" si "last" -->
+<!-- 2. Modificati textul din mijloc cu textul "middle" -->
+<html>
+  <head>
+    <title>Update the first and last elements of the unordered lists</title>
+  </head>
+  <body onload="onload()">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ul>
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+    </ul>
+    <ul>
+      <li>👻</li>
+      <li>👽</li>
+      <li>🦁</li>
+    </ul>
+
+    <script>
+      function onload() {
+        const ulNodes = [...document.getElementsByTagName("ul")]; // destructuring; putem folosi metodele de la Arrays
+        // const ulNodes = document.getElementsByTagName("ul")]; // HTMLCollection
+
+        ulNodes.forEach((ul) => {
+          const firstLi = ul.firstElementChild;
+          firstLi.textContent = "first";
+
+          const middleLi = firstLi.nextElementSibling;
+          middleLi.textContent = "middle";
+
+          const lastLi = ul.lastElementChild;
+          lastLi.textContent = "last";
+        });
+
+        // for (const ul of ulNodes) {
+        //   const firstLi = ul.firstElementChild;
+        //   firstLi.textContent = "first";
+
+        //   const lastLi = ul.lastElementChild;
+        //   lastLi.textContent = "last";
+        // }
+      }
+    </script>
+  </body>
+</html>

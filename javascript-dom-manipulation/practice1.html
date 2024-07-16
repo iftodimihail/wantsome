@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul id="list">
+      <li>OFF</li>
+      <li>OFF</li>
+      <li>OFF</li>
+      <li>OFF</li>
+      <li>OFF</li>
+      <li>OFF</li>
+    </ul>
+    <script>
+      const listItems = document.querySelectorAll("#list li");
+      console.log(listItems);
+
+      const handleHover = (event) => {
+        return (event.target.innerText = "ON");
+      };
+      if (listItems.length > 1) {
+        listItems.forEach((item) =>
+          item.addEventListener("mouseover", handleHover)
+        );
+      }
+
+      function insertElement(tag, id, text) {
+        const element = document.createElement(tag);
+        element.setAttribute("id", id);
+        element.innerHTML = text;
+        document.body.appendChild(element);
+      }
+
+      function insertLink(text, link) {
+        const linkElement = document.createElement("a");
+        linkElement.innerHTML = text;
+        linkElement.setAttribute("href", link);
+        linkElement.setAttribute("target", "_blank");
+        document.body.appendChild(linkElement);
+      }
+
+      function numberOfLinkElements() {
+        const linkElementsList = document.getElementsByTagName("a");
+        console.log(linkElementsList.length);
+      }
+
+      insertElement("p", "top", "inserted child text node");
+      insertLink("Link catre google", "http://google.com");
+      insertLink("Link catre google", "http://google.com");
+      insertLink("Link catre google", "http://google.com");
+      insertLink("Link catre google", "http://google.com");
+      insertLink("Link catre google", "http://google.com");
+      insertLink("Link catre google", "http://google.com");
+      insertLink("Link catre google", "http://google.com");
+
+      numberOfLinkElements();
+    </script>
+  </body>
+</html>

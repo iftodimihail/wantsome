@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- 1. Modifica stilul paragrafului -->
+<!-- 2. Creati o clasa css pe care sa o atasati pe element -->
+<html>
+  <head>
+    <title>Paragraph style</title>
+    <style>
+      .paragraph {
+        background-color: blue;
+        font-size: 10px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="text">Change my style</p>
+    <div>
+      <button id="style" onclick="styleParagraph()">Style</button>
+    </div>
+
+    <script>
+      function styleParagraph() {
+        // enter your code here
+        const paragraph = document.getElementById("text");
+
+        // 1.
+        // paragraph.style.backgroundColor = "red";
+        // paragraph.style.fontSize = "20px";
+
+        // 2.
+        // paragraph.setAttribute("class", "paragraph");
+        paragraph.className = "paragraph";
+        // paragraph.classList.add("paragraph");
+      }
+    </script>
+  </body>
+</html>

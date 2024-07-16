@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+      }
+
+      input {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input type="text" name="password" placeholder="Password" />
+      <input
+        type="text"
+        name="confirmPassword"
+        placeholder="Confirm password"
+      />
+    </form>
+
+    <script>
+      const usernameInput = document.querySelector("input[name=username]");
+      const passwordInput = document.querySelector("input[name=password]");
+      const confirmPasswordInput = document.querySelector(
+        "input[name=confirmPassword]"
+      );
+
+      usernameInput.addEventListener("blur", function (event) {
+        if (event.target.value === "") {
+          alert("Username is required!");
+          return;
+        }
+
+        if (event.target.value.length < 4) {
+          alert("Username must be at least 4 characters long!");
+        }
+      });
+
+      passwordInput.addEventListener("blur", function (event) {
+        if (event.target.value === "") {
+          alert("Password is required!");
+          return;
+        }
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]/g;
+        if (!event.target.value.match(passwordRegex)) {
+          alert(
+            "Password must contain 1 uppercase letter, 1 lowercase letter and a digit!"
+          );
+        }
+      });
+
+      confirmPasswordInput.addEventListener("blur", function (event) {
+        if (event.target.value === "") {
+          alert("Password confirmation is required!");
+          return;
+        }
+
+        // if (event.target.value !== passwordInput.value) {
+        //   alert("Password confirmation must match the password!");
+        //   return;
+        // }
+      });
+
+      confirmPasswordInput.addEventListener("keyup", function (event) {
+        if (event.target.value !== passwordInput.value) {
+          console.log("Password confirmation must match the password!");
+        }
+      });
+    </script>
+  </body>
+</html>

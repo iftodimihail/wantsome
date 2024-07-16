@@ -1,0 +1,27 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.forest {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/038/985/779/non_2x/ai-generated-tranquil-scene-of-green-forest-in-summer-generated-by-ai-free-photo.jpg");
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- Creati o lista de cumparaturi unde fiecare denumire pt produs este un paragraph, bold si italic -->
+<!-- Pentru fiecare element din lista, adaugati o clasa ce va fi atasata atunci cand produsul a fost adaugat in cos -->
+<!-- hint: toggle class cand apasam pe paragraph-->
+<html>
+  <head>
+    <title>Create and style the groceries list</title>
+    <style>
+      p {
+        cursor: pointer;
+      }
+
+      .added-to-cart {
+        text-decoration: line-through;
+        background-color: green;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="groceriesList"></div>
+    <input type="text" placeholder="Item needed" />
+    <button onclick="addToList()">Add to list</button>
+    <script>
+      // enter your code here
+      const listContainer = document.getElementById("groceriesList");
+      const input = document.getElementsByTagName("input")[0];
+      const button = document.getElementsByTagName("button")[0];
+      const list = document.createElement("ul");
+      listContainer.appendChild(list);
+
+      function addToList() {
+        // enter your code here
+        const li = document.createElement("li");
+        const inputValue = input.value;
+        li.innerHTML = `<strong><em><p>${inputValue}</p></em></strong>`;
+        list.appendChild(li);
+        input.value = "";
+      }
+
+      // Edit paragraph item class
+      list.addEventListener("click", function (event) {
+        if (event.target.tagName === "P") {
+          // enter code here
+          const paragraph = event.target;
+          paragraph.classList.toggle("added-to-cart");
+        }
+      });
+    </script>
+  </body>
+</html>

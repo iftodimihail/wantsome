@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stopwatch - practice</title>
+    <style>
+      #lap-times {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      .lap-time-class span {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span>Total time</span>
+      <div id="time">00:00:00</div>
+
+      <span>Lap time</span>
+      <div id="lap-time">00:00:00</div>
+      <!-- 00:00:99 -> 00:01:00 -->
+      <!-- 00:59:99 -> 01:00:00 -->
+      <div id="buttons-container">
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="lap()">Lap</button>
+      </div>
+      <ol id="lap-times"></ol>
+    </div>
+
+    <script>
+      let stopwatchTotalTimeId;
+      let stopwatchLapTimeId;
+
+      // const lapButton =
+      //   document.getElementById("buttons-container").lastElementChild;
+
+      // const lapButton = document.getElementsByTagName("button")[3];
+
+      const lapButton = [...document.getElementsByTagName("button")].find(
+        (button) => button.textContent === "Lap"
+      );
+
+      lapButton.disabled = true;
+
+      function start() {
+        if (stopwatchTotalTimeId && stopwatchLapTimeId) {
+          return;
+        }
+
+        lapButton.disabled = false;
+
+        stopwatchTotalTimeId = setInterval(() => {
+          // change time
+          const currentTime = document.getElementById("time").innerHTML; // -> 00:00:00
+
+          // ["00", "00", "00"] -> [0, 0, 0]
+          let [minutes, seconds, milliseconds] =
+            parseStringToIntUnitsArray(currentTime);
+
+          document.getElementById("time").innerHTML = getTime(
+            minutes,
+            seconds,
+            milliseconds
+          );
+        }, 10);
+
+        stopwatchLapTimeId = setInterval(() => {
+          // change time
+          const currentLapTime = document.getElementById("lap-time").innerHTML; // -> 00:00:00
+
+          let [lapMinutes, lapSeconds, lapMilliseconds] =
+            parseStringToIntUnitsArray(currentLapTime);
+
+          document.getElementById("lap-time").innerHTML = getTime(
+            lapMinutes,
+            lapSeconds,
+            lapMilliseconds
+          );
+        }, 10);
+      }
+
+      function parseStringToIntUnitsArray(array) {
+        return array.split(":").map((unit) => parseInt(unit));
+      }
+
+      function getTime(minutes, seconds, milliseconds) {
+        milliseconds = milliseconds + 1;
+
+        //  00:00:99 -> 00:01:00
+        if (milliseconds > 99) {
+          seconds = seconds + 1;
+          milliseconds = 0;
+        }
+
+        // 00:59:99 -> 01:00:00
+        if (seconds > 59) {
+          minutes = minutes + 1;
+          seconds = 0;
+        }
+
+        if (milliseconds < 10) {
+          milliseconds = "0" + milliseconds;
+        }
+
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+
+        return `${minutes}:${seconds}:${milliseconds}`;
+      }
+
+      function stop() {
+        if (stopwatchTotalTimeId && stopwatchLapTimeId) {
+          clearInterval(stopwatchTotalTimeId);
+          clearInterval(stopwatchLapTimeId);
+          stopwatchTotalTimeId = null;
+          stopwatchLapTimeId = null;
+
+          lapButton.disabled = true;
+        }
+      }
+
+      function reset() {
+        stop();
+        document.getElementById("time").innerHTML = "00:00:00";
+        document.getElementById("lap-time").innerHTML = "00:00:00";
+      }
+
+      function lap() {
+        // 1. adaug timpul curent in lista
+        const lapTime = document.getElementById("lap-time").innerHTML;
+        const time = document.getElementById("time").innerHTML;
+        const lapTimeListItem = document.createElement("li"); // <li></li>
+        // lapTimeListItem.textContent = lapTime; // <li>01:14:56</li>
+
+        lapTimeListItem.innerHTML = `<div class="lap-time-class"><span>${time}</span><span>${lapTime}</span><div>`;
+        const ol = document.getElementById("lap-times");
+        ol.appendChild(lapTimeListItem); // <ol><li>01:14:56</li></ol>
+
+        // 2. resetez timpul lap-ului
+        document.getElementById("lap-time").innerHTML = "00:00:00";
+
+        // 3. repornesc timpul
+        start();
+      }
+    </script>
+  </body>
+</html>

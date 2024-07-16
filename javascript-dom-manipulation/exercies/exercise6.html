@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- Selectati si stergeti din lista optiunea selectata -->
+<html>
+  <head>
+    <title>Remove items from a dropdown list</title>
+  </head>
+  <body>
+    <form>
+      <select>
+        <option>Red</option>
+        <option>Green</option>
+        <option>White</option>
+        <option>Black</option>
+      </select>
+      <input type="button" onclick="removeColor()" value="Select and Remove" />
+    </form>
+
+    <script>
+      function removeColor() {
+        // enter code here
+        // 1. accesati elementul select
+        const select = document.querySelector("select");
+        // 2. obtineti lista de option elements
+        const options = document.querySelectorAll("option");
+        // 3. verificati valoare selectata pe select
+        const selectValue = select.value;
+        // 4. selectati elementul option pentru care valoarea din select corespunde cu textContent
+        const optionsArray = [...options]; // transforma NodeList-ul intr-un Array
+        const selectedOption = optionsArray.find(
+          (option) => option.textContent === selectValue
+        );
+        // for (const option of options) {
+        //   if (option.textContent === selectValue) {
+        //     selectedOption = option;
+        //   }
+        // }
+
+        // 5. stergeti elementul option pentru valoarea selectata
+        if (selectedOption) {
+          selectedOption.remove();
+        }
+      }
+    </script>
+  </body>
+</html>

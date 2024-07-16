@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    li {
+      color: white;
+    }
+    img {
+      width: 469px;
+      height: 600px;
+    }
+
+    .read {
+      background-color: green;
+    }
+
+    .unread {
+      background-color: blue;
+    }
+  </style>
+</head>
+<html>
+  <body>
+    <script>
+      // Title
+      const title = document.createElement("h1");
+      title.innerHTML = "Book List";
+      document.body.appendChild(title);
+
+      // Lista
+      const list = document.createElement("ul");
+
+      function createListItem(bookTitle, coverUrl, wasRead) {
+        const listItem = document.createElement("li");
+
+        // Coperta
+        const bookCoverImageElement = document.createElement("img");
+        bookCoverImageElement.setAttribute("src", coverUrl);
+
+        // Titlu carte
+        const bookTitleElement = document.createElement("p");
+        bookTitleElement.textContent = bookTitle;
+
+        listItem.appendChild(bookCoverImageElement);
+        listItem.appendChild(bookTitleElement);
+
+        if (wasRead) {
+          listItem.className = "read";
+        } else {
+          listItem.className = "unread";
+        }
+
+        list.appendChild(listItem);
+      }
+
+      createListItem(
+        "Harap Alb",
+        "https://vellant.ro/img-prod/9789731984728-1874925.jpg",
+        true
+      );
+      createListItem(
+        "Alba ca zapada",
+        "https://cdn.dc5.ro/img-prod/1992385-0.jpeg",
+        false
+      );
+      createListItem(
+        "Baltagul",
+        "https://cdn4.libris.ro/img/pozeprod/690/689961-1.jpg",
+        true
+      );
+      document.body.appendChild(list);
+    </script>
+  </body>
+</html>

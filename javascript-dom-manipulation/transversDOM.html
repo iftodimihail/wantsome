@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .demoClass {
+        background-color: cornflowerblue;
+        font-size: large;
+      }
+
+      .disabled {
+        background-color: lightgray;
+        color: gray;
+      }
+
+      .active {
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- This is a comment node! -->
+
+    <h1>The Element Object</h1>
+    <h2>The childNodes Property</h2>
+
+    <p>Whitespace between elements are text nodes. Comments are also nodes.</p>
+    <p>The body element's child nodes are:</p>
+    <p id="demo"></p>
+
+    <script>
+      const nodeList = document.body.children;
+
+      let text = "";
+      for (let i = 0; i < nodeList.length; i++) {
+        text += "<strong>" + nodeList[i].nodeName + "</strong>" + "<br>";
+      }
+
+      const demoElement = document.getElementById("demo");
+      demoElement.innerHTML = text;
+
+      // Practice
+      const secondP = demoElement.previousElementSibling;
+      secondP.previousElementSibling.style.color = "red";
+      secondP.nextElementSibling.style.color = "blue";
+
+      // Node creation
+      const paragraph = document.createElement("p");
+      paragraph.innerHTML = "Hello <strong>mighty</strong> Wantsome!";
+      //   console.log(paragraph);
+
+      // Node insertion
+      // appendChild
+      document.body.appendChild(paragraph);
+
+      // insertBefore
+      const paragraphBefore = document.createElement("p");
+      paragraphBefore.textContent = "Inserted before demo paragraph";
+      document.body.insertBefore(paragraphBefore, demoElement);
+
+      // replaceChild
+      const paragraphToReplaceWith = document.createElement("p");
+      paragraphToReplaceWith.textContent = "Replaced the second paragraph";
+      document.body.replaceChild(paragraphToReplaceWith, secondP);
+
+      // Node removal
+      //   document.body.removeChild(paragraph);
+      //   demoElement.remove();
+
+      // Attributes
+      console.log(demoElement.hasAttribute("class")); // -> false
+      console.log(demoElement.getAttribute("id")); // -> "demo"
+      demoElement.setAttribute("id", "demoEdited"); // -> modifica valoarea id-ului
+      demoElement.setAttribute("name", "demoName"); // -> adauga attributun name
+      demoElement.removeAttribute("style"); // -> sterge atributul style
+      demoElement.className = "demoClass";
+      demoElement.classList.add("disabled");
+      demoElement.classList.toggle("disabled"); // -> pt ca exista deja clasa, ea este scoasa din lista
+      demoElement.classList.toggle("disabled"); // -> pt ca a fost scoasa anterior, ea este adaugata inapoi in lista
+      console.log(
+        "Exista clasa disabled? ",
+        demoElement.classList.contains("disabled")
+      );
+      //   demoElement.classList.toggle("disabled"); // -> pt ca exista deja clasa, ea este scoasa din lista
+      //   console.log(
+      //     "Exista clasa disabled? ",
+      //     demoElement.classList.contains("disabled")
+      //   );
+
+      demoElement.classList.replace("disabled", "active");
+      demoElement.classList.remove("active");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Intro</title>
+  </head>
+  <body>
+    <!-- 1. creati un array cu toate tipurile de date pe care le stiti din JS, apoi afisati in consola tipul fiecarui element (folosind operatorul typeof). -->
+    <!-- 2. avand un array  cu numere aleatorii, afisati minimul -->
+    <script>
+      // 1.
+      //   const array = [1, "string", true, undefined, null, [1, 2, true]];
+      //   console.log("type of ", array[0], " este ", typeof array[0]);
+      //   console.log("type of ", array[1], " este ", typeof array[1]);
+      //   console.log("type of ", array[2], " este ", typeof array[2]);
+      //   console.log("type of ", array[3], " este ", typeof array[3]);
+      //   console.log("type of ", array[4], " este ", typeof array[4]);
+      //   console.log("type of ", array[5], " este ", typeof array[5]);
+
+      //   // 2.
+
+      //   const numbers = [12, 23, 54, 32145, 5, 21, -3, 543];
+      //   console.log(
+      //     "Minimul array-ului ",
+      //     numbers,
+      //     " este ",
+      //     Math.min(...numbers) // ...numbers echivalent cu 12, 23, 54, 32145, 5, 21, -3, 543 (insiruirea valorilor)
+      //   );
+
+      // exemplu parcurgere array si modificat doar numerele
+
+      let random = [2, 4, true, "string", null, 5];
+      console.log("Array initial:", random);
+      random = random.map((element) => {
+        if (typeof element === "number") {
+          return element + 1;
+        } else {
+          return element;
+        }
+      });
+
+      console.log("Array modificat: ", random);
+
+      //   // const name = "mihai"; -> daca punem const la string, voi avea eroare de javascript
+      //   let name = "mihai";
+      //   console.log("Nume initial:", name);
+
+      //   name = "Elena";
+      //   console.log("Nume modificat:", name);
+
+      //   //---------------------------------------------
+
+      //   const numbers = [1, 2, 3, 4, 5];
+      //   console.log("Array-ul nostru initial:", numbers);
+
+      //   numbers.push(6);
+      //   console.log("Array-ul nostru modificat cu pop:", numbers);
+      //   console.log("Lungimea array-ului nostru este:", numbers.length);
+
+      //   numbers.unshift(0);
+      //   console.log("Array-ul nostru modificat cu unshift:", numbers);
+      //   console.log("Lungimea array-ului nostru este:", numbers.length);
+
+      //   const lastElementOfArray = numbers.pop();
+      //   console.log(
+      //     "Ultimul element din array este:",
+      //     lastElementOfArray,
+      //     ", iar noul nostru array este:",
+      //     numbers
+      //   );
+
+      //   const firstElementOfArray = numbers.shift();
+      //   console.log(
+      //     "Primul element din array este:",
+      //     firstElementOfArray,
+      //     ", iar noul nostru array este:",
+      //     numbers
+      //   );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="paragraph">
+      I am a paragraphaaa
+      <button id="button">Click me!</button>
+      <a id="link" href="https://www.google.com">Google link</a>
+    </p>
+
+    <form id="form">
+      <input type="text" name="name" value="Wantsome" />
+      <input type="submit" value="Submit button" />
+    </form>
+
+    <!-- <p onmouseover="console.log('Mouse over paragraph!')">
+      Paragraph mouse over
+    </p>
+    <p onmouseout="console.log('Mouse out paragraph!')">Paragraph mouse out</p>
+    <p onmouseenter="console.log('Mouse enter paragraph!')">
+      Paragraph mouse enter
+    </p>
+    <p onmousemove="console.log('Mouse mouse paragraph!')">
+      Paragraph mouse move
+    </p> -->
+
+    <script>
+      const button = document.getElementById("button");
+      const paragraph = document.getElementById("paragraph");
+
+      // Metoda 1
+      // button.onclick = function () {
+      //   console.log("Am apasat");
+      //   alert("Clicked the button!");
+      // };
+
+      // Metoda 2 (recomandata)
+      function buttonClickHandler1(event) {
+        console.log("Am apasat pe BUTON!");
+        // event.stopPropagation();
+      }
+
+      // function buttonClickHandler2() {
+      //   console.log("Second handler");
+      //   button.removeEventListener("click", buttonClickHandler1);
+      // }
+
+      function paragraphClickHandler() {
+        console.log("Am apasat pe Buton dar am fost si eu apelat!");
+        event.stopPropagation();
+      }
+
+      button.addEventListener("click", buttonClickHandler1);
+      // button.addEventListener("click", buttonClickHandler2);
+      paragraph.addEventListener("click", paragraphClickHandler);
+
+      document.body.addEventListener("click", function (event) {
+        console.log("Si pe body este apelat");
+        console.log(event.target);
+      });
+
+      function linkClinkHandler(event) {
+        console.log("Am apasat pe link!");
+        event.preventDefault();
+      }
+
+      const link = document.getElementById("link");
+      link.addEventListener("click", linkClinkHandler);
+
+      const form = document.getElementById("form");
+      function formSubmitHandler(event) {
+        console.log("Am facut submit la form!");
+        event.preventDefault();
+      }
+
+      form.addEventListener("submit", formSubmitHandler);
+    </script>
+  </body>
+</html>
